@@ -11,7 +11,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 
 export const metadata: Metadata = {
     title: "CoinControl",
-    description: "CoinControl is a modern banking platform for everyong",
+    description: "CoinControl is a modern banking platform for everyone",
     icons: {
         icon: '/icons/logo.svg'
     }
