@@ -15,11 +15,11 @@ import { CustomInput } from './CustomInput';
 import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { signIn, signUp } from '@/lib/actions/user.actions';
+import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions';
 
 
 export const AuthForm = ({ type }: { type: string }) => {
-    const router = useRouter();
+    const router = useRouter()
     const [user, setuser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -108,7 +108,7 @@ export const AuthForm = ({ type }: { type: string }) => {
                                         <CustomInput control={form.control} name="postalCode" label="Postal Code" placeholder="Ex: 11101" />
                                     </div>
                                     <div className='flex gap-4'>
-                                        <CustomInput control={form.control} name="dateOfBirth" label="Date of Birth" placeholder="YYYYMMDD" />
+                                        <CustomInput control={form.control} name="dateOfBirth" label="Date of Birth" placeholder="MM-DD-YYYY" />
                                         <CustomInput control={form.control} name="ssn" label="SSN" placeholder="Ex: 1234" />
                                     </div>
                                 </>
