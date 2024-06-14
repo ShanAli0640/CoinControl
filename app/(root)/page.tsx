@@ -8,16 +8,32 @@ import { getLoggedInUser } from '@/lib/actions/user.actions';
 const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
     const currentPage = Number(page as string) || 1;
     const loggedIn = await getLoggedInUser();
-    const accounts = await getAccounts({
-        userId: loggedIn.$id
-    })
 
-    if (!accounts) return;
+    const userId = loggedIn.$id;
+    if (!userId) {
+        console.error('User ID is not valid');
+        return;
+    }
 
-    const accountsData = accounts?.data;
+    const accounts = await getAccounts({ userId });
+    if (!accounts?.data || accounts.data.length === 0) {
+        console.error('Accounts data not found or empty');
+        return;
+    }
+
+    const accountsData = accounts.data;
     const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
 
-    const account = await getAccount({ appwriteItemId })
+    if (!appwriteItemId) {
+        console.error('Appwrite item ID is not valid');
+        return;
+    }
+
+    const account = await getAccount({ appwriteItemId });
+    if (!account) {
+        console.error('Account data not found');
+        return;
+    }
 
     return (
         <section className="home">
