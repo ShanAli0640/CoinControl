@@ -44,6 +44,9 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  dotenv:
+    specifier: ^16.4.5
+    version: 16.4.5
   dwolla-v2:
     specifier: ^3.4.0
     version: 3.4.0
