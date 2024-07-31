@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import generateResponse from '@/lib/openai';
+import generateResponse from '@/lib/actions/openai.actions';
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';
 
